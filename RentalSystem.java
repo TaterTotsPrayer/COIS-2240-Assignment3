@@ -75,7 +75,7 @@ public class RentalSystem {
     	}
     }
     private void saveCustomer(Customer c) {
-    	try (FileWriter writer = new FileWriter("customers.txt", true)){
+    	try (FileWriter writer = new FileWriter("customer.txt", true)){
     		writer.write(c.getCustomerId() + "," + c.getCustomerName() + "\n");
     		
     	}
