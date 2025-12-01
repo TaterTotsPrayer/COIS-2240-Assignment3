@@ -79,4 +79,14 @@ class VehicleRentalTest {
 		boolean returnAgain = rentalSystem.returnVehicle(vehicle, customer, LocalDate.now(), 0.0);
 		assertFalse(returnAgain, "Returning same vehicle fails");
 	}
+	
+	@Test
+	void testSingletonRentalSystem() throws Exception{
+		Constructor<RentalSystem> constructor = RentalSystem.class.getDeclaredConstructor();
+		int modifiers = constructor.getModifiers();
+		assertTrue(Modifier.isPrivate(modifiers), "Constructor is private");
+		
+		RentalSystem instance = RentalSystem.getInstance();
+		assertNotNull(instance, "Singleton instance not null");
+	}
 }
